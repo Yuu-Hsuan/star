@@ -125,11 +125,11 @@ class EdgeFeatures(nn.Module):
         return e_new
         #最終將映射後的特徵進行加和，以生成更新的邊特徵
 
-
+#ResidualGatedGCNLayer 類別結合門控和殘差連接來進行圖卷積操作
 class ResidualGatedGCNLayer(nn.Module):
     """Convnet layer with gating and residual connection.
     """
-
+    #建立節點和邊特徵層以及批次正規化層
     def __init__(self, hidden_dim, aggregation="sum"):
         super(ResidualGatedGCNLayer, self).__init__()
         self.node_feat = NodeFeatures(hidden_dim, aggregation)
